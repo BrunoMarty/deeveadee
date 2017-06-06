@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   get 'user/index'
 
   root 'main#index'
-  get 'dvd/:page' => 'main#dvd'
-  get 'dvd/cat/:id', to: 'main#dvdbycat'
+  get 'dvd/page/:page' => 'main#dvds'
+  get 'dvd/cat/:id' => 'main#dvdbycat'
+  get 'dvd/:id' => 'main#dvd'
+  post 'dvd/comment' => 'main#addcomment'
 
   get 'user' => 'user#index'
   post 'user' => 'user#index'
+  get 'user/create' => 'user#create'
+  post 'user/create' => 'user#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
