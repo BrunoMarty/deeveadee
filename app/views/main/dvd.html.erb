@@ -1,0 +1,28 @@
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+  <h1><%= @title %></h1>
+
+  <% @dvds.each do |dvd| %>
+      <a href="#">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <p><%= dvd.titre %></p>
+        </div></a>
+  <% end %>
+  <% if @page != '1' %>
+      <% pagem = @page.to_i - 1 %>
+
+      <a href="/dvd/<%= pagem %>"><<</a>
+  <% end %>
+  <%= @page %>
+  <% if  @dvds.count > 11%>
+      <% pagep =  @page.to_i + 1 %>
+      <a href="/dvd/<%= pagep %>">>></a>
+ <% end %>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+  <h1>Les Categories :</h1>
+  <% @cats.each do |cat| %>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <a href="/dvd/cat/<%= cat.id %>"><%= cat.nom %></a>
+      </div>
+  <% end %>
+</div>
