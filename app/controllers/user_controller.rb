@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   include ActionController::UrlFor
   include Rails.application.routes.url_helpers
-
+  # Fonction pour la connexion
   def index
     @title = "Connexion"
     if params[:nom] != nil && params[:password] != nil
@@ -14,6 +14,7 @@ class UserController < ApplicationController
     end
   end
 
+  # Création de compte utilisateur
   def create
     @title = "Création de compte"
     if params[:nom] != nil && params[:password] != nil
@@ -22,6 +23,11 @@ class UserController < ApplicationController
 
       # redirect_to root_path
     end
+  end
 
+  def disconnect
+    session[:useremail] = nil
+    session[:userid] = nil
+    redirect_to action: "index"
   end
 end
