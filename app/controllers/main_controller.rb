@@ -12,7 +12,7 @@ class MainController < ApplicationController
     @title = "Nos DVD"
     @cats = Categorie.all
     @page = params[:page]
-    @dvds = Dvd.page(@page).per(12)
+    @dvds = Dvd.page(@page).per(6)
 
   end
 
@@ -23,11 +23,28 @@ class MainController < ApplicationController
 
   def dvd
     @dvd = Dvd.find(params[:id])
+    notes = @dvd.notes
+    @moyenne = 0
+    notes.each do |note|
+      @moyenne += note.note
+    end
+    if notes.count > 0
+    @moyenne = @moyenne / notes.count
+    end
+    @note = nil
+    if session[:userid] != nil
+      @note = Note.where("client_id = '"+session[:userid].to_s+"' AND dvd_id = '"+params[:id].to_s+"'").first
+    end
     @comments = @dvd.remarques
   end
 
   def addcomment
     Remarque.create dvd_id: params[:dvd], commentaires: "#{params[:comment]}"
+    redirect_to action: "dvd", id: "#{params[:dvd]}"
+  end
+
+  def addnote
+    Note.create dvd_id: params[:dvd], client_id: session[:userid],note: params[:note]
     redirect_to action: "dvd", id: "#{params[:dvd]}"
   end
 end

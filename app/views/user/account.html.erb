@@ -1,0 +1,32 @@
+<h1><%= @title %></h1>
+<%= form_tag "/user/account", method: "post" do %>
+    <label>Nom :</label>
+    <input value="<%= @client.nom %>" type="text" name="nom"/>
+    <label>Prénom :</label>
+    <input value="<%= @client.prenom %>" type="text" name="prenom"/>
+    <label>Email :</label>
+    <input value="<%= @client.email %>" type="text" name="email"/>
+    <label>Nouveau mot de passe :</label>
+    <input placeholder="Mot de passe..." type="password" name="password"/>
+    <label>Mon abonnement :</label>
+    <select name="abo">
+      <option  value="0">Sans abonnement</option>
+      <% @abos.each do |abo| %>
+          <option <% if @client.abonnement_id == abo.id %>
+                  <%= "selected" %>
+                  <% end %>
+                  value="<%= abo.id %>">
+            <%= abo.nom + " " + Societe.find(abo.id).nom %>
+          </option>
+      <% end %>
+    </select>
+    <input class="btn btn-info" type="submit" value="Modifier"/>
+
+<% end %>
+<h1> Mes réservations</h1>
+<% @emprunts.each do |emprunt| %>
+    <p>
+      <%= emprunt.date %>
+      <%= Dvd.find(emprunt.dvd_id).titre %>
+    </p>
+<% end %>

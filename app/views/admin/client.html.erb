@@ -1,0 +1,30 @@
+<div class="row">
+
+  <table>
+    <thead>
+    <td>Nom</td>
+    <td>Prenom</td>
+    <td>Mail</td>
+    <td>Mot de passe</td>
+
+    </thead>
+
+    <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.nom %></td>
+      <td><%= client.prenom %></td>
+      <td><%= client.email %></td>
+      <td><%= client.mdp %></td>
+      <td><a class="glyphicon glyphicon-remove"></a><a class="glyphicon glyphicon-pencil"></a></td>
+    </tr>
+    <% end %>
+
+  </table>
+  <%= form_tag "/admin/client/add", method: "post" do %>
+      <input type="text" placeholder="Nom..." name="nom"/>
+      <input type="text" placeholder="Prenom..." name="prenom"/>
+      <input type="text" placeholder="Email..." name="email"/>
+      <input type="password" placeholder="Mot de passe..." name="password"/>
+      <input class="btn btn-info" type="submit" value="Ajouter"/>
+  <% end %>
+</div>

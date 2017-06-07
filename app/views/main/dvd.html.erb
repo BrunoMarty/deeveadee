@@ -1,11 +1,35 @@
 <h1><%= @dvd.titre %></h1>
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+  <%= image_tag("images.png") %>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+  <p>Auteur: <%= @dvd.auteur %></p>
+  <p>Acteur: <%= Acteur.find(@dvd.acteur_id).nom+" "+Acteur.find(@dvd.acteur_id).prenom %></p>
+  <p>Année: <%= @dvd.annee %></p>
+  <p>Catégorie: <%= Categorie.find(@dvd.categorie_id).nom %></p>
+  <p>En stock : <%= @dvd.nombre %></p>
+  <% societe=Societe.find(@dvd.societe_id) %>
+  <p>Société: <%= societe.nom %></p>
+  <p><%= societe.ville %></p>
+  <p>Note :<%= @moyenne %> / 5</p>
+  <% i = 1 %>
+  <% if @note == nil %>
+      <% while i <= 5  do %>
+          <a class="btn btn-info" href="/dvd/note/<%= @dvd.id %>/<%= i %>"><%= i %></a>
+          <% i +=1 %>
+      <% end %>
+  <% end %>
 
+  <a class="btn btn-info" href="#">Réserver</a>
+</div>
+</div>
 <% @comments.each do |comment| %>
-  <p><%= comment.commentaires %></p>
+    <p><%= comment.commentaires %></p>
 <% end %>
 <%= form_tag "/dvd/comment", method: "post" do %>
     <textarea name="comment">
     </textarea>
     <input type="hidden" value="<%= @dvd.id %>" name="dvd" />
-    <input type="submit" value="Laisser un commentaire"/>
+    <input class="btn btn-info" type="submit" value="Laisser un commentaire"/>
 <% end %>

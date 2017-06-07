@@ -14,3 +14,11 @@
  *= require_self
  *= require bootstrap
  */
+
+table {
+    width: 100%;
+}
+
+tr {
+    height:3em;
+}
