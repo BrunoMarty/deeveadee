@@ -1,0 +1,166 @@
+<div class="row">
+  <%= form_tag "/admin/dvd/add", method: "post" do %>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input type="text" placeholder="Titre..." name="titre"/>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input type="text" placeholder="Auteur..." name="auteur"/>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input autocomplete="off" type="text" placeholder="Acteur..." name="acteur" id="acteur"/>
+        <div class="autoimp" id ="resact"></div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input type="text" placeholder="Role..." name="role"/>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input type="text" placeholder="Année..." name="annee"/>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input autocomplete="off" type="text" placeholder="Categorie..." name="categorie" id="categorie"/>
+        <div class="autoimp" id ="rescat"></div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input type="date" placeholder="Date d'achat..." name="date"/>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input type="text" placeholder="Nb exemaplaire..." name="nombre"/>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input autocomplete="off" type="text" placeholder="Societé..." name="societe" id="societe"/>
+        <div class="autoimp" id ="ressoc"></div>
+      </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <input class="btn btn-info" type="submit" value="Ajouter"/>
+      </div>
+  <% end %>
+  <table>
+    <thead>
+    <td>Titre</td>
+    <td>Auteur</td>
+    <td>Acteur</td>
+    <td>Role</td>
+    <td>Annee</td>
+    <td>Catégorie</td>
+    <td>Achat</td>
+    <td>Nb exemplaires</td>
+    <td>Société</td>
+
+    </thead>
+
+    <% @dvds.each do |dvd| %>
+        <tr>
+          <td><%= dvd.titre %></td>
+          <td><%= dvd.auteur %></td>
+          <td><%= dvd.acteur_id %></td>
+          <td><%= dvd.role %></td>
+          <td><%= dvd.annee %></td>
+          <td><%= dvd.categorie_id %></td>
+          <td><%= dvd.dateAchat %></td>
+          <td><%= dvd.nombre %></td>
+          <td><%= dvd.societe_id %></td>
+          <td><a href="/admin/dvd/<%= dvd.id %>" class="glyphicon glyphicon-remove"></a><a class="glyphicon glyphicon-pencil"></a></td>
+        </tr>
+    <% end %>
+
+  </table>
+
+  </div>
+
+  <script>
+      $(document).click(function(){
+          $('#ressoc').hide();
+          $('#rescat').hide();
+          $('#resact').hide();
+          $('#ressoc').empty();
+          $('#rescat').empty();
+          $('#resact').empty();
+      });
+      $('#categorie').keyup(function(){
+          var donnes = $(this).val();
+          $.ajax({
+              beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+              url : '/admin/jsoncat',
+              type : 'POST',
+              data:{'data': donnes},
+
+              success : function(data){
+                  $('#rescat').empty();
+                  $('#rescat').show()
+                  data.forEach(function(element) {
+                      id = element['id']
+                      nom = element['nom']
+                      $('#rescat').append('<div onclick=implementcat("'+nom+'") id="'+id+'">'+nom+'</div>');
+                  });
+
+
+              }
+          });
+      });
+
+      $('#acteur').keyup(function(){
+          var valeur = $(this).val();
+          $.ajax({
+              beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+              url : '/admin/jsonact',
+              type : 'POST',
+              data:{'data': valeur},
+
+              success : function(data){
+                  $('#resact').empty();
+                  $('#resact').show()
+                  data.forEach(function(element) {
+                      id = element['id']
+                      nom = element['nom']
+                      $('#resact').append('<div onclick=implementact("'+nom+'") id="'+id+'">'+nom+'</div>');
+                  });
+
+
+              }
+          });
+      });
+
+      $('#societe').keyup(function(){
+          var valeur = $(this).val();
+          $.ajax({
+              beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+              url : '/admin/jsonsoc',
+              type : 'POST',
+              data:{'data': valeur},
+
+              success : function(data){
+                  ;
+                  $('#ressoc').empty();
+                  $('#ressoc').show()
+                  data.forEach(function(element) {
+                      id = element['id']
+                      nom = element['nom']
+                      console.log(nom)
+                      $('#ressoc').append('<div onclick=implementsoc("'+nom+'") id="'+id+'">'+nom+'</div>');
+                  });
+
+
+              }
+          });
+      });
+
+      function implementcat(nom){
+          console.log(nom);
+          $('#categorie').val(nom);
+          $('#rescat').hide()
+          $('#rescat').empty();
+      };
+      function implementact(nom){
+          console.log(nom);
+          $('#acteur').val(nom);
+          $('#resact').hide()
+          $('#resact').empty();
+      };
+      function implementsoc(nom){
+          console.log(nom);
+          $('#societe').val(nom);
+          $('#ressoc').hide()
+          $('#ressoc').empty();
+      };
+  </script>

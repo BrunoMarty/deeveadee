@@ -16,7 +16,7 @@
                   <%= "selected" %>
                   <% end %>
                   value="<%= abo.id %>">
-            <%= abo.nom + " " + Societe.find(abo.id).nom %>
+            <%= abo.nom.to_s + " " + Societe.find(abo.id).nom.to_s %>
           </option>
       <% end %>
     </select>
@@ -24,9 +24,9 @@
 
 <% end %>
 <h1> Mes réservations</h1>
-<% @emprunts.each do |emprunt| %>
-    <p>
-      <%= emprunt.date %>
-      <%= Dvd.find(emprunt.dvd_id).titre %>
-    </p>
-<% end %>
+    <% @emprunts.each do |emprunt| %>
+        <p>
+          <%= emprunt.date %>
+          <%= Dvd.find(emprunt.dvd_id).titre %>
+        </p>
+    <% end %>

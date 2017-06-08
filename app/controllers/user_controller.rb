@@ -35,7 +35,7 @@ class UserController < ApplicationController
     @title = "Mon Compte"
     @abos = Abonnement.all
     @client = Client.find(session[:userid])
-    @reservations = @client.emprunts
+    @emprunts = @client.emprunts
   end
 
   def updateaccount

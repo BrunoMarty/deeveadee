@@ -3,6 +3,18 @@ Rails.application.routes.draw do
   get 'admin/client' => 'admin#client'
   get 'admin/:classe/:id' => 'admin#remove'
   post 'admin/client/add' => 'admin#addclient'
+  get 'admin/categorie'
+  post 'admin/categorie/add' => 'admin#addcategorie'
+  get 'admin/societe'
+  post 'admin/societe/add' => 'admin#addsociete'
+  get 'admin/acteur'
+  post 'admin/acteur/add' => 'admin#addacteur'
+  get 'admin/dvd'
+
+  post 'admin/jsoncat' => 'admin#autocompletecat'
+  post 'admin/jsonact' => 'admin#autocompleteact'
+  post 'admin/jsonsoc' => 'admin#autocompletesoc'
+
 
   root 'main#index'
   get 'dvd/page/:page' => 'main#dvds'

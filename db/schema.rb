@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170602135019) do
   create_table "dvds", force: :cascade do |t|
     t.string "titre", limit: 45
     t.string "auteur", limit: 45
-    t.integer "acteur", limit: 11
+    t.integer "acteur.html.erb", limit: 11
     t.string "role", limit: 45
     t.integer "année", limit: 11
     t.integer "genre", limit: 11

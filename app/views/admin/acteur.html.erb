@@ -1,0 +1,36 @@
+<div class="row">
+  <a href="/admin" class="glyphicon glyphicon-backward"></a>
+  <table>
+    <thead>
+    <td>Nom</td>
+    <td>Prenom</td>
+    <td>Date</td>
+    <td>Sexe</td>
+    </thead>
+
+    <% @acteurs.each do |acteur| %>
+        <tr>
+          <td><%= acteur.nom %></td>
+          <td><%= acteur.prenom %></td>
+          <td><%= acteur.age %></td>
+          <td><%= acteur.sexe %></td>
+          <td>
+            <% if acteur.dvds.count == 0 %>
+                <a href="/admin/acteur/<%= acteur.id %>" class="glyphicon glyphicon-remove"></a>
+            <% end %>
+            </a><a class="glyphicon glyphicon-pencil"></a></td>
+        </tr>
+    <% end %>
+
+  </table>
+  <%= form_tag "/admin/acteur/add", method: "post" do %>
+      <input type="text" placeholder="Nom..." name="nom"/>
+      <input type="text" placeholder="Prenom..." name="prenom"/>
+      <input type="date" placeholder="Date..." name="date"/>
+      <select name="sexe">
+        <option>femme</option>
+        <option>homme</option>
+      </select>
+      <input class="btn btn-info" type="submit" value="Ajouter"/>
+  <% end %>
+</div>

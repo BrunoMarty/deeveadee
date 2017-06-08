@@ -22,3 +22,12 @@ table {
 tr {
     height:3em;
 }
+
+.autoimp {
+    display:none;
+    z-index:111;
+    position: absolute;
+    background-color:white;
+    border: 1px solid rgba(134,149,40,1);
+    width:20%;
+}

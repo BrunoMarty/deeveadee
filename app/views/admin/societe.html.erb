@@ -1,0 +1,36 @@
+<div class="row">
+  <a href="/admin" class="glyphicon glyphicon-backward"></a>
+  <table>
+    <thead>
+
+    <td>Nom</td>
+    <td>Rue</td>
+    <td>Ville</td>
+    <td>Directeur</td>
+
+    </thead>
+
+    <% @societes.each do |societe| %>
+        <tr>
+          <td><%= societe.nom %></td>
+          <td><%= societe.rue %></td>
+          <td><%= societe.ville %></td>
+          <td><%= societe.directeur %></td>
+          <td>
+            <% if societe.dvds.count == 0 && societe.id != 0 %>
+                <a href="/admin/societe/<%= societe.id %>" class="glyphicon glyphicon-remove"></a>
+            <% end %>
+            </a><a class="glyphicon glyphicon-pencil"></a>
+          </td>
+        </tr>
+    <% end %>
+
+  </table>
+  <%= form_tag "/admin/societe/add", method: "post" do %>
+      <input type="text" placeholder="Nom..." name="nom"/>
+      <input type="text" placeholder="Rue..." name="rue"/>
+      <input type="text" placeholder="Ville..." name="ville"/>
+      <input type="text" placeholder="Directeur..." name="directeur"/>
+      <input class="btn btn-info" type="submit" value="Ajouter"/>
+  <% end %>
+</div>

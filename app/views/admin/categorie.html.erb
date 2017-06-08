@@ -1,0 +1,29 @@
+<div class="row">
+  <a href="/admin" class="glyphicon glyphicon-backward"></a>
+  <table>
+    <thead>
+    <td>Numero</td>
+    <td>Nom</td>
+
+
+    </thead>
+
+    <% @categories.each do |cat| %>
+        <tr>
+          <td><%= cat.id %></td>
+          <td><%= cat.nom %></td>
+
+          <td>
+            <% if cat.dvds.count == 0 %>
+                <a href="/admin/categorie/<%= cat.id %>" class="glyphicon glyphicon-remove"></a>
+            <% end %>
+            </a><a class="glyphicon glyphicon-pencil"></a></td>
+        </tr>
+    <% end %>
+
+  </table>
+  <%= form_tag "/admin/categorie/add", method: "post" do %>
+      <input type="text" placeholder="Nom..." name="nom"/>
+      <input class="btn btn-info" type="submit" value="Ajouter"/>
+  <% end %>
+</div>

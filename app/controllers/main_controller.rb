@@ -23,6 +23,8 @@ class MainController < ApplicationController
 
   def dvd
     @dvd = Dvd.find(params[:id])
+    @dvd.consultations += 1
+    @dvd.save
     notes = @dvd.notes
     @moyenne = 0
     notes.each do |note|
