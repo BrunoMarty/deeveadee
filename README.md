@@ -1,24 +1,29 @@
-# README
+# Evaluation Deeveadee
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version : 2.3.1
+* Rails version : 5.1.1
+* Sqlite 
+* DB Browser for Sqlite
+* Bootstrap 3.3.7
+* Jquery 3.2.1
 
-Things you may want to cover:
+* Compte de test : Email : root -- Password : root
+* Route admin : /admin
 
-* Ruby version
+##Partie Client
+* [x] Landing page
+* [x] Liste des dvd
+* [x] Filtre par catégorie
+* [x] Création / Modification de compte
+* [x] Modification de l'abonnement
+* [x] Noter lorsque l'on est connecté
+* [x] Laisser un commentaire
+* [x] Auto-incrémentation du nombre de consultations
+* [x] Top notes des films
+* [x] Top consultations par catégorie
+* [ ] Réservation 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##Partie Gérant
+* [x] Ajout dans les tables (par encore toutes les tables)
+* [x] Suppression dans les tables (par encore toutes les tables)
+* [ ] Edition 

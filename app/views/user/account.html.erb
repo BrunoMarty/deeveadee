@@ -1,14 +1,33 @@
 <h1><%= @title %></h1>
 <%= form_tag "/user/account", method: "post" do %>
-    <label>Nom :</label>
-    <input value="<%= @client.nom %>" type="text" name="nom"/>
-    <label>Prénom :</label>
-    <input value="<%= @client.prenom %>" type="text" name="prenom"/>
-    <label>Email :</label>
-    <input value="<%= @client.email %>" type="text" name="email"/>
-    <label>Nouveau mot de passe :</label>
-    <input placeholder="Mot de passe..." type="password" name="password"/>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <label>Nom :</label>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <input value="<%= @client.nom %>" type="text" name="nom"/>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <label>Prénom :</label>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <input value="<%= @client.prenom %>" type="text" name="prenom"/>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <label>Email :</label>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <input value="<%= @client.email %>" type="text" name="email"/>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <label>Nouveau mot de passe :</label>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <input placeholder="Mot de passe..." type="password" name="password"/>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <label>Mon abonnement :</label>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <select name="abo">
       <option  value="0">Sans abonnement</option>
       <% @abos.each do |abo| %>
@@ -20,13 +39,20 @@
           </option>
       <% end %>
     </select>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
     <input class="btn btn-info" type="submit" value="Modifier"/>
+    </div>
 
 <% end %>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <h1> Mes réservations</h1>
-    <% @emprunts.each do |emprunt| %>
-        <p>
-          <%= emprunt.date %>
-          <%= Dvd.find(emprunt.dvd_id).titre %>
-        </p>
-    <% end %>
+</div>
+<% @emprunts.each do |emprunt| %>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <p>
+      <%= emprunt.date %>
+      <%= Dvd.find(emprunt.dvd_id).titre %>
+    </p>
+    </div>
+<% end %>

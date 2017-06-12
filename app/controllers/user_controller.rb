@@ -10,6 +10,7 @@ class UserController < ApplicationController
         if defined? session[:useremail]
           session[:useremail] = account.email
           session[:userid] = account.id
+          redirect_to action: "account"
         end
     end
   end

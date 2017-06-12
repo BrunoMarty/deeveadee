@@ -1,5 +1,16 @@
+<a href="/admin" class="glyphicon glyphicon-backward btn btn-info"></a>
+<%= form_tag "/admin/acteur/add", method: "post" do %>
+    <input type="text" placeholder="Nom..." name="nom"/>
+    <input type="text" placeholder="Prenom..." name="prenom"/>
+    <input type="date" placeholder="Date..." name="date"/>
+    <select name="sexe">
+      <option>femme</option>
+      <option>homme</option>
+    </select>
+    <input class="btn btn-info" type="submit" value="Ajouter"/>
+<% end %>
 <div class="row">
-  <a href="/admin" class="glyphicon glyphicon-backward"></a>
+
   <table>
     <thead>
     <td>Nom</td>
@@ -23,14 +34,5 @@
     <% end %>
 
   </table>
-  <%= form_tag "/admin/acteur/add", method: "post" do %>
-      <input type="text" placeholder="Nom..." name="nom"/>
-      <input type="text" placeholder="Prenom..." name="prenom"/>
-      <input type="date" placeholder="Date..." name="date"/>
-      <select name="sexe">
-        <option>femme</option>
-        <option>homme</option>
-      </select>
-      <input class="btn btn-info" type="submit" value="Ajouter"/>
-  <% end %>
+
 </div>

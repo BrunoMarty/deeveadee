@@ -1,11 +1,12 @@
 <h1><%= @title %></h1>
 <%= form_tag "/user/create", method: "post" do %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
     <input placeholder="Nom..." type="text" name="nom"/>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
     <input placeholder="Mot de passe..." type="password" name="password"/>
-    <input type="submit" value="Créer"/>
-
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+    <input class="btn btn-info" type="submit" value="Créer"/>
+    </div>
 <% end %>
-
-<%= @test %>
-<%= session[:username] %>
-<%= session[:userid] %>

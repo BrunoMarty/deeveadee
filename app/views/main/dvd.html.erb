@@ -1,8 +1,7 @@
 <h1><%= @dvd.titre %></h1>
 <div class="row">
-<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-  <%= image_tag("images.png") %>
-</div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 center">
+  <%= image_tag("504498.jpg") %></div>
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
   <p>Auteur: <%= @dvd.auteur %></p>
   <p>Acteur: <%= Acteur.find(@dvd.acteur_id).nom+" "+Acteur.find(@dvd.acteur_id).prenom %></p>
@@ -13,23 +12,33 @@
   <p>Société: <%= societe.nom %></p>
   <p><%= societe.ville %></p>
   <p>Note :<%= @moyenne %> / 5</p>
-  <% i = 1 %>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <% i = 0 %>
   <% if @note == nil %>
       <% while i <= 5  do %>
           <a class="btn btn-info" href="/dvd/note/<%= @dvd.id %>/<%= i %>"><%= i %></a>
           <% i +=1 %>
       <% end %>
   <% end %>
+  </div>
 
-  <a class="btn btn-info" href="#">Réserver</a>
 </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 reserv">
+    <a class="btn btn-info" href="https://www.zone-telechargement.ws" target="_blank">Réserver</a>
+  </div>
 </div>
 <% @comments.each do |comment| %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 comments">
     <p><%= comment.commentaires %></p>
+    </div>
 <% end %>
 <%= form_tag "/dvd/comment", method: "post" do %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 com">
     <textarea name="comment">
     </textarea>
+    </div>
     <input type="hidden" value="<%= @dvd.id %>" name="dvd" />
-    <input class="btn btn-info" type="submit" value="Laisser un commentaire"/>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 com">
+    <input class="btn btn-info com" type="submit" value="Laisser un commentaire"/>
+    </div>
 <% end %>

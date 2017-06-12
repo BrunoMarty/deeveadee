@@ -53,13 +53,13 @@
         <tr>
           <td><%= dvd.titre %></td>
           <td><%= dvd.auteur %></td>
-          <td><%= dvd.acteur_id %></td>
+          <td><%= Acteur.find(dvd.acteur_id).nom %></td>
           <td><%= dvd.role %></td>
           <td><%= dvd.annee %></td>
-          <td><%= dvd.categorie_id %></td>
+          <td><%= Categorie.find(dvd.categorie_id).nom %></td>
           <td><%= dvd.dateAchat %></td>
           <td><%= dvd.nombre %></td>
-          <td><%= dvd.societe_id %></td>
+          <td><%= Societe.find(dvd.societe_id).nom %></td>
           <td><a href="/admin/dvd/<%= dvd.id %>" class="glyphicon glyphicon-remove"></a><a class="glyphicon glyphicon-pencil"></a></td>
         </tr>
     <% end %>

@@ -33,7 +33,7 @@ class AdminController < ApplicationController
     @categorie = Categorie.all
   end
 
-  # Fonctions d'ajouter dans les tables, possible de faire qu'une seule fonction mais comment ?
+  # Fonctions d'ajouts dans les tables, possible de faire qu'une seule fonction mais comment ?
   def addclient
     Client.create abonnement_id:0, email: "#{params[:email]}", mdp: "#{params[:password]}", nom: "#{params[:nom]}", prenom: "#{params[:prenom]}"
     redirect_to action: "client"
@@ -55,15 +55,19 @@ class AdminController < ApplicationController
   end
 
   def adddvd
+    acteur = Acteur.where("nom = '"+params[:acteur]+"'").first.id
+    cat = Categorie.where("nom = '"+params[:categorie]+"'").first.id
+    soc = Societe.where("nom = '"+params[:societe]+"'").first.id
+
     Dvd.create titre: params[:titre],
                auteur: params[:auteur],
-               acteur_id: params[:acteur],
+               acteur_id: acteur,
                role: params[:role],
                annee: params[:annee],
-               categorie_id: params[:categorie],
+               categorie_id: cat,
                dateAchat: params[:date],
                nombre: params[:nombre],
-               societe_id: params[:societe]
+               societe_id: soc
     redirect_to action: "dvd"
   end
 
@@ -75,6 +79,8 @@ class AdminController < ApplicationController
     redirect_to action: "#{params[:classe]}"
   end
 
+
+  # Fonctions d'autocomplétions pour le formulaire d'ajout de Dvd
   def autocompletecat
     @cats = Categorie.where("nom LIKE '%"+params[:data]+"%'").first(5)
     render :json => @cats.to_json

@@ -14,6 +14,32 @@
  *= require_self
  *= require bootstrap
  */
+@font-face {
+    font-family: SAMAN;
+    src: url('fonts/SAMAN___.TTF');
+}
+
+@font-face {
+    font-family: Conforta;
+    src: url('fonts/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+    font-family: Conforta;
+    src: url('fonts/Comfortaa-Bold.ttf');
+    font-weight: bold;
+}
+
+body {
+    font-family: Conforta;
+    background-color: rgba(252,94,33,.1);
+}
+
+h1 {
+    font-family: SAMAN;
+    font-size:3em;
+    text-align: center;
+}
 
 table {
     width: 100%;
@@ -30,4 +56,150 @@ tr {
     background-color:white;
     border: 1px solid rgba(134,149,40,1);
     width:20%;
+}
+.navbar {
+    background-color:rgba(252,94,33,1);
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+    color:white;
+}
+
+.navbar-default .navbar-nav > li:hover, .navbar-default .navbar-brand:hover {
+    background-color:rgba(112,20,106,1);
+    color:rgba(252,94,33,1);
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-brand a:hover {
+    color:rgba(252,94,33,1);
+}
+
+.categorie a {
+    width:45%;
+    margin:0.5em 0.2em 0.5em 0.2em;
+}
+
+.categorie {
+    text-align: justify;
+}
+
+.btn-info {
+    background-color:rgba(252,94,33,1);
+    border:none;
+}
+
+.btn-info:hover {
+    background-color: rgba(201,11,11,1);
+}
+
+.btn-info:active {
+    background-color: rgba(112,20,106,1);
+}
+
+.ajouts > a > div {
+    margin : 1em;
+    padding: 1em 0.4em 1em 0.4em;
+    border: 1px solid rgba(112,20,106,0.7);
+    border-left: 6px solid rgba(112,20,106,0.7);
+
+}
+
+.ajouts > a > div:hover {
+    background-color:rgba(112,20,106,0.2);
+
+}
+
+.ajouts > a  {
+    color:black;
+}
+
+.dvds > a > div  {
+    padding:1em;
+    margin: 1em;
+}
+
+.dvds > a > div:hover  {
+    background-color:rgba(112,20,106,.4);
+}
+
+.dvds > a {
+    color:black;
+}
+
+.comments p {
+    border-bottom:2px solid rgba(112,20,106,.4);
+    text-align: justify;
+    margin:1em;
+    padding:1em;
+}
+
+textarea {
+    width: 90%;
+    margin:3em 0 1em 0;
+}
+
+.com {
+    text-align: center;
+}
+
+.reserv {
+    margin-top: 2em;
+    text-align: center;
+}
+.reserv a {
+    width: 90%;
+}
+
+.center {
+    text-align: center;
+}
+
+input {
+    margin: 1em 0.5em 1em 0.5em;
+}
+
+.admin {
+    width: 100%;
+    height: 5em;
+    line-height: 4em;
+    margin: 2em 0 2em 0;
+}
+
+.page a {
+    margin: 0 1em 0 1em;
+}
+
+.page span {
+    margin: 0 1em 0 1em;
+    color: rgba(137,149,40,1);
+    font-weight: bold;
+}
+
+.page {
+    margin:1em;
+}
+
+.top a {
+    background-color: rgba(112,20,106,1);
+    width: 100%;
+    margin: 1em 0 1em 0;
+    height: 3em;
+    line-height: 2em;
+}
+
+.top a:hover {
+    background-color:rgba(252,94,33,1);
+
+}
+
+.ajouts img {
+    max-width: 15em;
+}
+
+.jaquette img {
+    max-width: 10em;
+}
+
+.center img {
+    max-width: 30em;
 }

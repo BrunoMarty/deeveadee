@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'admin/acteur'
   post 'admin/acteur/add' => 'admin#addacteur'
   get 'admin/dvd'
+  post 'admin/dvd/add' => 'admin#adddvd'
 
   post 'admin/jsoncat' => 'admin#autocompletecat'
   post 'admin/jsonact' => 'admin#autocompleteact'
