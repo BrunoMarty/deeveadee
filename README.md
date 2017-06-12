@@ -10,7 +10,7 @@
 * Compte de test : Email : root -- Password : root
 * Route admin : /admin
 
-##Partie Client
+## Partie Client
 * [x] Landing page
 * [x] Liste des dvd
 * [x] Filtre par catégorie
@@ -23,7 +23,7 @@
 * [x] Top consultations par catégorie
 * [ ] Réservation 
 
-##Partie Gérant
+## Partie Gérant
 * [x] Ajout dans les tables (par encore toutes les tables)
 * [x] Suppression dans les tables (par encore toutes les tables)
 * [ ] Edition 
