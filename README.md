@@ -12,7 +12,7 @@
 
 ## Screenshot
 
-![Alt text](https://github.com/BrunoMarty/deeveadee/app/assets/images/screen.png)
+![Alt text](https://raw.githubusercontent.com/BrunoMarty/deeveadee/master/app/assets/images/screen.png)
 
 ## Partie Client
 * [x] Landing page
