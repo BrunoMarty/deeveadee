@@ -10,6 +10,10 @@
 * Compte de test : Email : root -- Password : root
 * Route admin : /admin
 
+## Screenshot
+
+![Alt text](https://github.com/BrunoMarty/deeveadee/tree/master/app/assets/images/screen.png "Deeveadee")
+
 ## Partie Client
 * [x] Landing page
 * [x] Liste des dvd
@@ -21,9 +25,10 @@
 * [x] Auto-incrémentation du nombre de consultations
 * [x] Top notes des films
 * [x] Top consultations par catégorie
+* [x] Respect de la charte graphique, vous allez avoir mal aux yeux
 * [ ] Réservation 
 
 ## Partie Gérant
 * [x] Ajout dans les tables (par encore toutes les tables)
-* [x] Suppression dans les tables (par encore toutes les tables)
+* [x] Suppression dans les tables (par encore toutes les tables), possible uniquement si la suppresion n'impacte pas les autres tables
 * [ ] Edition 

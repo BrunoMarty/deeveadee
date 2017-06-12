@@ -26,12 +26,14 @@ class UserController < ApplicationController
     end
   end
 
+  # Fonction de deconnexion
   def disconnect
     session[:useremail] = nil
     session[:userid] = nil
     redirect_to action: "index"
   end
 
+  # Fonction qui récupère les infos du compte utilisateur en session
   def account
     @title = "Mon Compte"
     @abos = Abonnement.all
@@ -39,11 +41,15 @@ class UserController < ApplicationController
     @emprunts = @client.emprunts
   end
 
+  # Fonction de mise à jour du compte utilisateur
   def updateaccount
+    # On récupère les données du client que l'on veut
     client = Client.find(session[:userid])
+    # On modifie les données
     client.nom = params[:nom]
     client.prenom = params[:prenom]
     client.email = params[:email]
+    # Si un nouveau password a été entré, on le modifie aussi
     if params[:password].length != 0
     client.mdp = params[:password]
     end
@@ -52,6 +58,7 @@ class UserController < ApplicationController
     else
       client.abonnement_id = params[:abo]
     end
+    # On sauvegarde et on redirige sur la page du compte
     client.save
     redirect_to action: "account"
   end

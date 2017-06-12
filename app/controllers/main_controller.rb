@@ -30,9 +30,12 @@ class MainController < ApplicationController
 
   # Détail d'un DVD
   def dvd
+    # On récupère le Dvd en question
     @dvd = Dvd.find(params[:id])
+    # On incrémente le nombre de consultations
     @dvd.consultations += 1
     @dvd.save
+    # Calcul de la moyenne des notes, pas très propre mais j'ai pas eu le temps de le refaire
     notes = @dvd.notes
     @moyenne = 0
     notes.each do |note|
@@ -41,6 +44,7 @@ class MainController < ApplicationController
     if notes.count > 0
     @moyenne = @moyenne / notes.count
     end
+    # On test si on est connecté et si l'utilisateur a déjà noté ce dvd
     @note = 0
     if session[:userid] != nil
       @note = Note.where("client_id = '"+session[:userid].to_s+"' AND dvd_id = '"+params[:id].to_s+"'").first
@@ -48,11 +52,13 @@ class MainController < ApplicationController
     @comments = @dvd.remarques
   end
 
+  # Ajout d'un commentaire en BDD
   def addcomment
     Remarque.create dvd_id: params[:dvd], commentaires: "#{params[:comment]}"
     redirect_to action: "dvd", id: "#{params[:dvd]}"
   end
 
+  #  Ajout d'une note en BDD
   def addnote
     Note.create dvd_id: params[:dvd], client_id: session[:userid],note: params[:note]
     redirect_to action: "dvd", id: "#{params[:dvd]}"
