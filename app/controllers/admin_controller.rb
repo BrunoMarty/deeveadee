@@ -2,31 +2,37 @@ class AdminController < ApplicationController
   include ActionController::UrlFor
   include Rails.application.routes.url_helpers
   def index
+    redirectco
     @title = "Administration"
   end
 
   # Fonctions d'affichage des tables, possible de faire qu'une seule fonction mais comment ?
   def client
+    redirectco
     @title = "Clients"
     @clients = Client.all
   end
 
   def categorie
+    redirectco
     @title = "Categories"
     @categories = Categorie.all
   end
 
   def societe
+    redirectco
     @title = "Sociétés"
     @societes = Societe.all
   end
 
   def acteur
+    redirectco
     @title = "Acteurs"
     @acteurs = Acteur.all
   end
 
   def dvd
+    redirectco
     @title = "DVD"
     @dvds = Dvd.all
     @acteurs = Acteur.all
@@ -94,5 +100,29 @@ class AdminController < ApplicationController
   def autocompletesoc
     @acts = Societe.where("nom LIKE '%"+params[:data]+"%'").first(5)
     render :json => @acts.to_json
+  end
+
+  def security
+    @title = "Connexion Admin"
+  end
+
+  # Fonction de deconnexion
+  def disconnect
+    session[:admin] = nil
+    redirect_to action: "security"
+  end
+
+  def verifco
+    admin = Admin.where("nom = '"+params[:nom]+"' AND mdp = '"+params[:password]+"'").first
+    if admin !=
+        session[:admin] = 1
+    end
+    redirect_to action: "index"
+  end
+
+  def redirectco
+    if session[:admin] == nil
+      redirect_to action: "security"
+    end
   end
 end

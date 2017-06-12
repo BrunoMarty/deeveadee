@@ -32,7 +32,11 @@
 
 body {
     font-family: Conforta;
-    background-color: rgba(252,94,33,.1);
+    background-color: rgba(0,0,0,.15);
+}
+
+.container-fluid {
+    height: 100%;
 }
 
 h1 {
@@ -75,7 +79,7 @@ tr {
 }
 
 .categorie a {
-    width:45%;
+    width:48%;
     margin:0.5em 0.2em 0.5em 0.2em;
 }
 
@@ -153,7 +157,7 @@ textarea {
 }
 
 input {
-    margin: 1em 0.5em 1em 0.5em;
+    margin: 1.5em 0.5em 0em 0.5em;
 }
 
 .admin {
@@ -200,4 +204,13 @@ input {
 
 .center img {
     max-width: 30em;
+}
+
+label {
+    width:100%;
+}
+
+.account input, .account select {
+    margin:0 0 1.5em 0;
+
 }

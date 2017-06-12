@@ -1,3 +1,7 @@
+<%= form_tag "/admin/categorie/add", method: "post" do %>
+    <input type="text" placeholder="Nom..." name="nom"/>
+    <input class="btn btn-info" type="submit" value="Ajouter"/>
+<% end %>
 <div class="row">
   <a href="/admin" class="glyphicon glyphicon-backward"></a>
   <table>
@@ -22,8 +26,5 @@
     <% end %>
 
   </table>
-  <%= form_tag "/admin/categorie/add", method: "post" do %>
-      <input type="text" placeholder="Nom..." name="nom"/>
-      <input class="btn btn-info" type="submit" value="Ajouter"/>
-  <% end %>
+
 </div>

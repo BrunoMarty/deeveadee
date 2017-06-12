@@ -6,6 +6,7 @@
 * DB Browser for Sqlite
 * Bootstrap 3.3.7
 * Jquery 3.2.1
+* Ajax
 
 * Compte de test : Email : root -- Password : root
 * Route admin : /admin

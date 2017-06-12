@@ -1,34 +1,31 @@
 <h1><%= @title %></h1>
+<div class="col-xs-0 col-sm-0 col-md-3 col-lg-4">
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 account">
 <%= form_tag "/user/account", method: "post" do %>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>Nom :</label>
+      <input class="form-control" value="<%= @client.nom %>" type="text" name="nom"/>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <input value="<%= @client.nom %>" type="text" name="nom"/>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12">
       <label>Prénom :</label>
+      <input class="form-control" value="<%= @client.prenom %>" type="text" name="prenom"/>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <input value="<%= @client.prenom %>" type="text" name="prenom"/>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>Email :</label>
+      <input class="form-control" value="<%= @client.email %>" type="text" name="email"/>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <input value="<%= @client.email %>" type="text" name="email"/>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>Nouveau mot de passe :</label>
+      <input class="form-control" placeholder="Mot de passe..." type="password" name="password"/>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <input placeholder="Mot de passe..." type="password" name="password"/>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label>Mon abonnement :</label>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-    <select name="abo">
+    <select  class="form-control" name="abo">
       <option  value="0">Sans abonnement</option>
       <% @abos.each do |abo| %>
           <option <% if @client.abonnement_id == abo.id %>
@@ -45,6 +42,7 @@
     </div>
 
 <% end %>
+</div>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <h1> Mes réservations</h1>
 </div>
