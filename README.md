@@ -1,12 +1,23 @@
-# Evaluation Deeveadee
+## Evaluation Deeveadee
+# Description 
 
-* Ruby version : 2.3.1
-* Rails version : 5.1.1
-* Sqlite 
-* DB Browser for Sqlite
-* Bootstrap 3.3.7
-* Jquery 3.2.1
-* Ajax
+Ce projet était une évaluation au cours de la formation Beweb, le cahier des charges était donné, et nous avions une semaine pour l'avancer un maximum, au départ il devait être fait sous CodeIgniter mais j'ai préféré le faire sous Ruby pour des raisons personnelles.
+
+# Logiciels utilisés :
+
+- Rubymine (license étudiant)
+- DB Brower for SQLite
+
+# Langages et Framework utilisés :
+
+- Ruby version : 2.3.1
+- Rails version : 5.1.1
+- Sqlite 
+- HTML / CSS
+- Bootstrap 3.3.7
+- JavaScript
+- Jquery 3.2.1
+- Ajax
 
 * Compte de test : Email : root -- Password : root
 * Route admin : /admin
